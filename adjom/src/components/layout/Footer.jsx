@@ -56,7 +56,7 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/40">
+        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/60">
           <p>&copy; {year} Adjom. Todos os direitos reservados.</p>
           <p>Tecnologia que roda invisível nos bastidores.</p>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Container from "../ui/Container";
 import WhatsAppButton from "../ui/WhatsAppButton";
@@ -13,6 +13,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -20,6 +21,18 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header
@@ -68,10 +81,12 @@ export default function Navbar() {
         </div>
 
         <button
+          ref={toggleRef}
           type="button"
           className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-amethyst"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
@@ -85,7 +100,10 @@ export default function Navbar() {
       </Container>
 
       {open && (
-        <div className="md:hidden bg-white border-t border-amethyst/10 px-6 py-6 flex flex-col gap-1">
+        <div
+          id="mobile-menu"
+          className="md:hidden bg-white border-t border-amethyst/10 px-6 py-6 flex flex-col gap-1"
+        >
           {NAV_LINKS.map((item) => (
             <NavLink
               key={item.to}

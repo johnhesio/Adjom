@@ -8,7 +8,7 @@ const VARIANTS = {
   ghost:
     "bg-white text-amethyst border border-amethyst/15 hover:border-amethyst/30",
   outlineLight:
-    "bg-transparent text-white border border-white/30 hover:bg-white/10",
+    "bg-transparent text-white border border-white/40 hover:bg-white/10",
 };
 
 export default function WhatsAppButton({

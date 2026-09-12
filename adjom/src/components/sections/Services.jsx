@@ -46,7 +46,7 @@ export default function Services() {
               to={s.to}
               className="group grid md:grid-cols-[80px_1fr_auto] gap-6 md:gap-10 items-start md:items-center py-10 px-2 -mx-2 rounded-xl hover:bg-linen/60 transition-colors"
             >
-              <span className="font-mono text-sm text-pacific">{s.num}</span>
+              <span className="font-mono text-sm text-pacific-ink">{s.num}</span>
               <div>
                 <h3 className="font-display text-2xl font-semibold text-amethyst group-hover:text-orange transition-colors">
                   {s.title}

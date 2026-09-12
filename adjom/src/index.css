@@ -12,13 +12,16 @@
   --color-orange: #c2410c;
   --color-orange-soft: #e2661f;
   --color-pacific: #6db1bf;
+  --color-pacific-ink: #2f6570;
   --color-slate: #475569;
   --color-linen: #f7f1e8;
   --color-logo-bg: #f7f7f7;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -40,10 +43,42 @@ h1, h2, h3, h4 {
   color: #fff;
 }
 
+/* orange-soft mantém >=3:1 tanto sobre fundos claros quanto sobre o amethyst
+   escuro (o laranja padrão cai para ~2.95:1 sobre amethyst) — WCAG 1.4.11 */
 :focus-visible {
-  outline: 2px solid var(--color-orange);
+  outline: 2px solid var(--color-orange-soft);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  background: var(--color-amethyst);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus-visible {
+  top: 0;
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .kicker {
