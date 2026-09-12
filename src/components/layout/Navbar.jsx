@@ -6,6 +6,7 @@ import WhatsAppButton from "../ui/WhatsAppButton";
 const NAV_LINKS = [
   { to: "/sites", label: "Sites" },
   { to: "/sistemas", label: "Sistemas" },
+  { to: "/automacao-ia", label: "Automação IA" },
   { to: "/branding", label: "Branding" },
   { to: "/contato", label: "Contato" },
 ];

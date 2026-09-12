@@ -33,6 +33,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li><Link to="/sites" className="hover:text-white">Criação de sites</Link></li>
               <li><Link to="/sistemas" className="hover:text-white">Sistemas sob medida</Link></li>
+              <li><Link to="/automacao-ia" className="hover:text-white">Automação com IA</Link></li>
               <li><Link to="/branding" className="hover:text-white">Branding &amp; identidade</Link></li>
             </ul>
           </nav>

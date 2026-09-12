@@ -3,6 +3,7 @@ import Services from "../components/sections/Services";
 import Process from "../components/sections/Process";
 import Differentiators from "../components/sections/Differentiators";
 import Packages from "../components/sections/Packages";
+import AIAutomation from "../components/sections/AIAutomation";
 import FAQ from "../components/sections/FAQ";
 import FinalCTA from "../components/sections/FinalCTA";
 import { useSEO, organizationJsonLd } from "../lib/useSEO";
@@ -23,6 +24,7 @@ export default function Home() {
       <Process />
       <Differentiators />
       <Packages />
+      <AIAutomation />
       <FAQ />
       <FinalCTA />
     </>
